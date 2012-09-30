@@ -6,8 +6,15 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'jquery-rails'
-gem "puma", ">= 1.6.3", :group => :production
-gem "mysql2", ">= 0.3.11"
+group :production do
+  gem 'thin'
+end
+group :development, :test do
+  gem "mysql2", ">= 0.3.11"
+end
+group :production do
+  gem 'pg'
+end
 gem "haml", ">= 3.1.7"
 gem "haml-rails", ">= 0.3.5", :group => :development
 gem "hpricot", ">= 0.8.6", :group => :development
@@ -17,3 +24,4 @@ gem "devise", ">= 2.1.2"
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.0.2"
+gem "heroku"
